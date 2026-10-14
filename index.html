@@ -5,27 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bússola Política</title>
 <meta name="description" content="Responda 44 afirmações em 11 temas e veja sua posição em 5 eixos políticos, com gráficos e correntes de pensamento próximas.">
-<meta name="theme-color" content="#14172b">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%2314172b' stroke='%23f2c46d' stroke-width='4'/%3E%3Cpath d='M32 12 L38 32 L32 52 L26 32 Z' fill='%23f2c46d'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#e6e3dd">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2064%2064%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%228%22%20fill%3D%22%23f7f6f2%22/%3E%3Cg%20fill%3D%22%237a5c2e%22%3E%3Cpath%20d%3D%22M14%2016h36l-3%205H17z%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2221%22%20width%3D%2232%22%20height%3D%223%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2219%22%20y%3D%2226%22%20width%3D%224%22%20height%3D%2222%22/%3E%3Crect%20x%3D%2226%22%20y%3D%2226%22%20width%3D%224%22%20height%3D%2222%22/%3E%3Crect%20x%3D%2234%22%20y%3D%2226%22%20width%3D%224%22%20height%3D%2222%22/%3E%3Crect%20x%3D%2241%22%20y%3D%2226%22%20width%3D%224%22%20height%3D%2222%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2249%22%20width%3D%2234%22%20height%3D%223%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2253%22%20width%3D%2240%22%20height%3D%223%22%20rx%3D%221%22/%3E%3Cpath%20d%3D%22M32%206l2%204.2%204.6.6-3.4%203.1.9%204.5L32%2016.2l-4.1%202.2.9-4.5-3.4-3.1%204.6-.6z%22/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#14172b; --bg2:#1c2040; --card:#22274a; --card2:#2a3058;
-  --text:#eef0fa; --muted:#a7acc9; --line:#3a4170;
-  --gold:#f2c46d; --estado:#ef8a7a; --mercado:#6fc3e8;
+  --bg:#e6e3dd; --bg2:#efede8; --card:#f7f6f2; --card2:#ebe8e1;
+  --text:#1d1c1a; --muted:#5f5b54; --line:#cbc6bc;
+  --gold:#7a5c2e; --estado:#ef8a7a; --mercado:#6fc3e8;
   --prog:#a98bf0; --cons:#7fd3a0;
-  --radius:28px;
+  --radius:8px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--bg)}
 html,body{min-height:100%}
 body{min-height:100vh}
 body{
-  font-family:"Outfit",system-ui,sans-serif; color:var(--text);
-  background:radial-gradient(1200px 700px at 80% -10%,#2b2f63 0%,transparent 60%),
-             radial-gradient(900px 600px at -10% 110%,#2a2350 0%,transparent 60%),var(--bg);
+  font-family:"Inter",system-ui,sans-serif; color:var(--text);
+  background:radial-gradient(1200px 700px at 80% -10%,#f2f0ea 0%,transparent 60%),
+             radial-gradient(900px 600px at -10% 110%,#dcd8cf 0%,transparent 60%),var(--bg);
   background-repeat:no-repeat; line-height:1.5;
   padding:24px 16px calc(24px + env(safe-area-inset-bottom));
 }
@@ -37,18 +37,18 @@ header p{font-size:.85rem;color:var(--muted)}
 .card{
   background:linear-gradient(160deg,var(--card),var(--bg2));
   border-radius:var(--radius); padding:28px 22px;
-  box-shadow:0 20px 50px -20px #0009, inset 0 1px 0 #ffffff10;
+  box-shadow:0 20px 50px -20px #0009, inset 0 1px 0 #00000008;
 }
 .hidden{display:none!important}
 h2{font-size:1.5rem;line-height:1.25;margin-bottom:12px;font-weight:700}
 .lead{color:var(--muted);margin-bottom:20px}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.pill{background:var(--card2);border-radius:999px;padding:6px 14px;font-size:.85rem;color:var(--muted)}
+.pill{background:var(--card2);border-radius:6px;padding:6px 14px;font-size:.85rem;color:var(--muted)}
 button{font-family:inherit;cursor:pointer;border:0;color:inherit}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  background:var(--gold);color:#1b1a2e;font-weight:600;font-size:1.05rem;
-  border-radius:999px;padding:14px 28px;width:100%;
+  background:var(--gold);color:#f7f6f2;font-weight:600;font-size:1.05rem;
+  border-radius:6px;padding:14px 28px;width:100%;
   transition:transform .15s, filter .15s;
 }
 .btn:hover{filter:brightness(1.06)} .btn:active{transform:scale(.98)}
@@ -57,39 +57,39 @@ button{font-family:inherit;cursor:pointer;border:0;color:inherit}
 .row .btn{flex:1}
 
 /* quiz */
-.progress{height:10px;background:var(--card2);border-radius:999px;overflow:hidden;margin-bottom:10px}
-.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#f6a96b);border-radius:999px;transition:width .35s ease}
+.progress{height:10px;background:var(--card2);border-radius:6px;overflow:hidden;margin-bottom:10px}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#5e4521);border-radius:6px;transition:width .35s ease}
 .meta{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:18px}
 .tema{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 .q{font-size:1.25rem;font-weight:600;line-height:1.35;min-height:5.4em;margin-bottom:18px}
 .opts{display:flex;flex-direction:column;gap:10px}
 .opt{
   display:flex;align-items:center;gap:14px;text-align:left;
-  background:var(--card2);border-radius:20px;padding:14px 18px;font-size:1rem;
+  background:var(--card2);border-radius:8px;padding:14px 18px;font-size:1rem;
   transition:background .15s, transform .1s; border:2px solid transparent;
 }
-.opt:hover{background:#343b6b}
+.opt:hover{background:#e1ddd4}
 .opt:active{transform:scale(.99)}
-.opt.sel{border-color:var(--gold);background:#3a3a5e}
+.opt.sel{border-color:var(--gold);background:#e4dccb}
 .dot{width:20px;height:20px;border-radius:50%;flex:none;border:3px solid var(--line)}
 .opt[data-v="2"] .dot{background:#7fd3a0;border-color:#7fd3a0}
 .opt[data-v="1"] .dot{background:#7fd3a055;border-color:#7fd3a0}
-.opt[data-v="0"] .dot{background:#a7acc944;border-color:#a7acc9}
+.opt[data-v="0"] .dot{background:#5f5b5444;border-color:#5f5b54}
 .opt[data-v="-1"] .dot{background:#ef8a7a55;border-color:#ef8a7a}
 .opt[data-v="-2"] .dot{background:#ef8a7a;border-color:#ef8a7a}
 .back{background:none;color:var(--muted);font-size:.95rem;margin-top:16px;padding:8px 4px}
 .back:disabled{opacity:.35;cursor:default}
 
 /* result */
-.badge{display:inline-block;background:var(--card2);border-radius:999px;padding:6px 14px;font-size:.8rem;color:var(--gold);font-weight:600;margin-bottom:10px}
+.badge{display:inline-block;background:var(--card2);border-radius:6px;padding:6px 14px;font-size:.8rem;color:var(--gold);font-weight:600;margin-bottom:10px}
 .compass{width:100%;max-width:420px;display:block;margin:8px auto 20px}
 .axis{margin:16px 0}
 .axis-label{font-weight:600;font-size:1rem;margin-bottom:6px}
 .axis-top{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-top:8px}
-.bar{position:relative;height:14px;border-radius:999px;background:linear-gradient(90deg,var(--estado),#4b4f7a 50%,var(--mercado))}
-.bar.soc{background:linear-gradient(90deg,var(--prog),#4b4f7a 50%,var(--cons))}
+.bar{position:relative;height:14px;border-radius:6px;background:linear-gradient(90deg,var(--estado),#b9b3a7 50%,var(--mercado))}
+.bar.soc{background:linear-gradient(90deg,var(--prog),#b9b3a7 50%,var(--cons))}
 .bar i{position:absolute;top:50%;width:24px;height:24px;border-radius:50%;background:var(--text);border:4px solid var(--bg);transform:translate(-50%,-50%);box-shadow:0 2px 8px #0008;transition:left .8s cubic-bezier(.2,.8,.2,1)}
-.desc{background:var(--card2);border-radius:22px;padding:18px;margin:20px 0}
+.desc{background:var(--card2);border-radius:8px;padding:18px;margin:20px 0}
 .desc h3{font-size:1.1rem;margin-bottom:6px}
 .desc p{color:var(--muted);font-size:.97rem}
 .desc p + p{margin-top:8px}
@@ -99,7 +99,7 @@ button{font-family:inherit;cursor:pointer;border:0;color:inherit}
 .note{font-size:.82rem;color:var(--muted);margin-top:18px;text-align:center}
 footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:28px}
 footer a{color:var(--gold);text-decoration:none}
-.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--gold);color:#1b1a2e;font-weight:600;padding:12px 20px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--gold);color:#f7f6f2;font-weight:600;padding:12px 20px;border-radius:6px;opacity:0;transition:.25s;pointer-events:none}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 .fade{animation:fade .35s ease}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -109,38 +109,40 @@ footer a{color:var(--gold);text-decoration:none}
 .sec{margin-top:28px}
 .sec h3{font-size:1.15rem;margin-bottom:4px}
 .sec .sub{color:var(--muted);font-size:.88rem;margin-bottom:14px}
-.tabs{display:flex;gap:6px;background:var(--card2);border-radius:999px;padding:5px;margin-bottom:12px}
-.tabs button{flex:1;padding:9px 6px;border-radius:999px;font-size:.88rem;color:var(--muted);background:none}
-.tabs button.on{background:var(--gold);color:#1b1a2e;font-weight:600}
+.tabs{display:flex;gap:6px;background:var(--card2);border-radius:6px;padding:5px;margin-bottom:12px}
+.tabs button{flex:1;padding:9px 6px;border-radius:6px;font-size:.88rem;color:var(--muted);background:none}
+.tabs button.on{background:var(--gold);color:#f7f6f2;font-weight:600}
 .chart{width:100%;display:block}
 .dv{margin:14px 0}
 .dv-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
 .dv-top b{font-size:.98rem;font-weight:600}
 .dv-top span{font-size:.82rem;color:var(--muted);text-align:right}
-.dv-track{position:relative;height:12px;border-radius:999px;background:var(--card2)}
+.dv-track{position:relative;height:12px;border-radius:6px;background:var(--card2)}
 .dv-track::after{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:var(--line);border-radius:2px}
-.dv-fill{position:absolute;top:0;bottom:0;border-radius:999px;transition:all .9s cubic-bezier(.2,.8,.2,1)}
+.dv-fill{position:absolute;top:0;bottom:0;border-radius:6px;transition:all .9s cubic-bezier(.2,.8,.2,1)}
 .dv-poles{display:flex;justify-content:space-between;font-size:.76rem;color:var(--muted);margin-top:5px}
 .aff{display:flex;flex-direction:column;gap:12px}
-.aff-item{background:var(--card2);border-radius:20px;padding:14px 16px}
+.aff-item{background:var(--card2);border-radius:8px;padding:14px 16px}
 .aff-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .aff-head b{font-weight:600}
 .aff-head span{color:var(--gold);font-weight:700}
-.aff-bar{height:8px;border-radius:999px;background:#ffffff12;margin:8px 0}
-.aff-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold),#f6a96b);width:0;transition:width 1s ease}
+.aff-bar{height:8px;border-radius:6px;background:#0000000f;margin:8px 0}
+.aff-bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--gold),#5e4521);width:0;transition:width 1s ease}
 .aff-item p{color:var(--muted);font-size:.88rem}
 .ins{display:flex;flex-direction:column;gap:10px}
-.ins div{background:var(--card2);border-radius:20px;padding:14px 16px;font-size:.94rem;color:var(--muted);display:flex;gap:12px}
+.ins div{background:var(--card2);border-radius:8px;padding:14px 16px;font-size:.94rem;color:var(--muted);display:flex;gap:12px}
 .ins div::before{content:"";flex:none;width:10px;height:10px;margin-top:7px;border-radius:50%;background:var(--gold)}
 .ins b{color:var(--text);font-weight:600}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--muted);margin-top:6px;justify-content:center}
 .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle}
+h1,h2,h3,.q,.aff-head b,.dv-top b{font-family:"Libre Caslon Text",Georgia,serif;letter-spacing:0}
+h2{font-weight:700} .tema,.badge{letter-spacing:.12em}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="#22274a" stroke="#f2c46d" stroke-width="4"/><path d="M32 12 L38 32 L32 52 L26 32 Z" fill="#f2c46d"/><circle cx="32" cy="32" r="3.5" fill="#14172b"/></svg>
+    <svg class="logo" aria-hidden="true" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="8" fill="#f7f6f2"/><g fill="#7a5c2e"><path d="M14 16h36l-3 5H17z"/><rect x="16" y="21" width="32" height="3" rx="1"/><rect x="19" y="26" width="4" height="22"/><rect x="26" y="26" width="4" height="22"/><rect x="34" y="26" width="4" height="22"/><rect x="41" y="26" width="4" height="22"/><rect x="15" y="49" width="34" height="3" rx="1"/><rect x="12" y="53" width="40" height="3" rx="1"/><path d="M32 6l2 4.2 4.6.6-3.4 3.1.9 4.5L32 16.2l-4.1 2.2.9-4.5-3.4-3.1 4.6-.6z"/></g></svg>
     <div><h1>Bússola Política</h1><p>Descubra onde suas ideias se posicionam</p></div>
   </header>
 
@@ -224,7 +226,7 @@ footer a{color:var(--gold);text-decoration:none}
 const AX={
   e:{n:"Economia",neg:"Mais Estado",pos:"Mais mercado",cn:"#ef8a7a",cp:"#6fc3e8"},
   s:{n:"Costumes",neg:"Progressista",pos:"Conservador",cn:"#a98bf0",cp:"#7fd3a0"},
-  a:{n:"Autoridade",neg:"Liberdade",pos:"Ordem",cn:"#f2c46d",cp:"#e58cb4"},
+  a:{n:"Autoridade",neg:"Liberdade",pos:"Ordem",cn:"#7a5c2e",cp:"#e58cb4"},
   g:{n:"Soberania",neg:"Abertura global",pos:"Nacionalismo",cn:"#5fd1c4",cp:"#e9a35b"},
   m:{n:"Meio ambiente",neg:"Preservação",pos:"Desenvolvimento",cn:"#8fd16a",cp:"#c9a37a"}
 };
@@ -359,30 +361,30 @@ function drawMap(){
     ?["#d9a36b","#7fd3a0","#ef8a7a","#6fc3e8"]
     :["#ef8a7a","#6fc3e8","#a98bf0","#8fd16a"];
   let refs=REF.map(([n,p])=>{const i=top3.indexOf(n);
-    return i<0?`<circle cx="${X(p[0])}" cy="${Y(p[yi])}" r="3.5" fill="#a7acc9" opacity=".5"/>`
-      :`<circle cx="${X(p[0])}" cy="${Y(p[yi])}" r="9" fill="#eef0fa"/><text x="${X(p[0])}" y="${Y(p[yi])+3.8}" fill="#14172b" font-size="11" font-weight="700" text-anchor="middle" font-family="Outfit">${i+1}</text>`}).join("");
+    return i<0?`<circle cx="${X(p[0])}" cy="${Y(p[yi])}" r="3.5" fill="#5f5b54" opacity=".5"/>`
+      :`<circle cx="${X(p[0])}" cy="${Y(p[yi])}" r="9" fill="#1d1c1a"/><text x="${X(p[0])}" y="${Y(p[yi])+3.8}" fill="#e6e3dd" font-size="11" font-weight="700" text-anchor="middle" font-family="Inter">${i+1}</text>`}).join("");
   const px=X(pos.e),py=Y(pos[yk]);
   $("map").innerHTML=`
-  <defs><clipPath id="cl"><rect x="40" y="40" width="260" height="260" rx="34"/></clipPath></defs>
+  <defs><clipPath id="cl"><rect x="40" y="40" width="260" height="260" rx="10"/></clipPath></defs>
   <g clip-path="url(#cl)" opacity=".17">
     <rect x="40" y="40" width="130" height="130" fill="${quads[0]}"/><rect x="170" y="40" width="130" height="130" fill="${quads[1]}"/>
     <rect x="40" y="170" width="130" height="130" fill="${quads[2]}"/><rect x="170" y="170" width="130" height="130" fill="${quads[3]}"/>
   </g>
   <circle cx="170" cy="170" r="${.15*r}" fill="#ffffff" opacity=".05"/>
-  ${[.4,.7].map(f=>`<circle cx="170" cy="170" r="${f*r}" fill="none" stroke="#3a4170" stroke-width="1" stroke-dasharray="2 5"/>`).join("")}
-  <rect x="40" y="40" width="260" height="260" rx="34" fill="none" stroke="#3a4170" stroke-width="2"/>
-  <line x1="40" y1="170" x2="300" y2="170" stroke="#3a4170" stroke-width="2" stroke-dasharray="4 6"/>
-  <line x1="170" y1="40" x2="170" y2="300" stroke="#3a4170" stroke-width="2" stroke-dasharray="4 6"/>
-  <text x="170" y="28" fill="#a7acc9" font-size="11.5" text-anchor="middle" font-family="Outfit">${ya.pos.toUpperCase()}</text>
-  <text x="170" y="322" fill="#a7acc9" font-size="11.5" text-anchor="middle" font-family="Outfit">${ya.neg.toUpperCase()}</text>
-  <text x="24" y="170" fill="#a7acc9" font-size="11.5" text-anchor="middle" font-family="Outfit" transform="rotate(-90 24 170)">MAIS ESTADO</text>
-  <text x="316" y="170" fill="#a7acc9" font-size="11.5" text-anchor="middle" font-family="Outfit" transform="rotate(90 316 170)">MAIS MERCADO</text>
+  ${[.4,.7].map(f=>`<circle cx="170" cy="170" r="${f*r}" fill="none" stroke="#cbc6bc" stroke-width="1" stroke-dasharray="2 5"/>`).join("")}
+  <rect x="40" y="40" width="260" height="260" rx="10" fill="none" stroke="#cbc6bc" stroke-width="2"/>
+  <line x1="40" y1="170" x2="300" y2="170" stroke="#cbc6bc" stroke-width="2" stroke-dasharray="4 6"/>
+  <line x1="170" y1="40" x2="170" y2="300" stroke="#cbc6bc" stroke-width="2" stroke-dasharray="4 6"/>
+  <text x="170" y="28" fill="#5f5b54" font-size="11.5" text-anchor="middle" font-family="Inter">${ya.pos.toUpperCase()}</text>
+  <text x="170" y="322" fill="#5f5b54" font-size="11.5" text-anchor="middle" font-family="Inter">${ya.neg.toUpperCase()}</text>
+  <text x="24" y="170" fill="#5f5b54" font-size="11.5" text-anchor="middle" font-family="Inter" transform="rotate(-90 24 170)">MAIS ESTADO</text>
+  <text x="316" y="170" fill="#5f5b54" font-size="11.5" text-anchor="middle" font-family="Inter" transform="rotate(90 316 170)">MAIS MERCADO</text>
   ${refs}
-  <line x1="170" y1="170" x2="${px}" y2="${py}" stroke="#f2c46d" stroke-width="2" stroke-dasharray="3 4" opacity=".6"/>
-  <circle cx="${px}" cy="${py}" r="20" fill="#f2c46d" opacity=".22"><animate attributeName="r" values="13;23;13" dur="2.4s" repeatCount="indefinite"/></circle>
-  <circle cx="${px}" cy="${py}" r="9" fill="#f2c46d" stroke="#14172b" stroke-width="3"/>
-  <text x="${px}" y="${py+24}" fill="#f2c46d" font-size="11" font-weight="700" text-anchor="middle" font-family="Outfit">VOCÊ</text>`;
-  $("mapLegend").innerHTML=`<span><i style="background:#f2c46d"></i>Você</span>`+top3.map((n,i)=>`<span><b style="color:#eef0fa">${i+1}</b> ${n}</span>`).join("");
+  <line x1="170" y1="170" x2="${px}" y2="${py}" stroke="#7a5c2e" stroke-width="2" stroke-dasharray="3 4" opacity=".6"/>
+  <circle cx="${px}" cy="${py}" r="20" fill="#7a5c2e" opacity=".22"><animate attributeName="r" values="13;23;13" dur="2.4s" repeatCount="indefinite"/></circle>
+  <circle cx="${px}" cy="${py}" r="9" fill="#7a5c2e" stroke="#e6e3dd" stroke-width="3"/>
+  <text x="${px}" y="${py+24}" fill="#7a5c2e" font-size="11" font-weight="700" text-anchor="middle" font-family="Inter">VOCÊ</text>`;
+  $("mapLegend").innerHTML=`<span><i style="background:#7a5c2e"></i>Você</span>`+top3.map((n,i)=>`<span><b style="color:#1d1c1a">${i+1}</b> ${n}</span>`).join("");
   document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.map===mapMode));
 }
 
@@ -392,18 +394,18 @@ function drawRadar(){
   const ang=i=>-Math.PI/2+i*2*Math.PI/n, P=(i,f)=>[cx+Math.cos(ang(i))*r*f,cy+Math.sin(ang(i))*r*f];
   const poly=f=>AXK.map((k,i)=>P(i,f(k)).join(",")).join(" ");
   const best=REF.find(x=>x[0]===aff[0].n)[1];
-  let g=[.25,.5,.75,1].map(f=>`<polygon points="${poly(()=>f)}" fill="none" stroke="#3a4170" stroke-width="1"/>`).join("");
-  g+=AXK.map((k,i)=>{const[x,y]=P(i,1);return`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#3a4170"/>`}).join("");
-  g+=`<polygon points="${poly(k=>Math.max(.04,Math.abs(best[AXK.indexOf(k)])))}" fill="#a7acc9" fill-opacity=".12" stroke="#a7acc9" stroke-width="1.5" stroke-dasharray="4 4"/>`;
-  g+=`<polygon points="${poly(k=>Math.max(.04,Math.abs(pos[k])))}" fill="#f2c46d" fill-opacity=".28" stroke="#f2c46d" stroke-width="2.5"/>`;
+  let g=[.25,.5,.75,1].map(f=>`<polygon points="${poly(()=>f)}" fill="none" stroke="#cbc6bc" stroke-width="1"/>`).join("");
+  g+=AXK.map((k,i)=>{const[x,y]=P(i,1);return`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#cbc6bc"/>`}).join("");
+  g+=`<polygon points="${poly(k=>Math.max(.04,Math.abs(best[AXK.indexOf(k)])))}" fill="#5f5b54" fill-opacity=".12" stroke="#5f5b54" stroke-width="1.5" stroke-dasharray="4 4"/>`;
+  g+=`<polygon points="${poly(k=>Math.max(.04,Math.abs(pos[k])))}" fill="#7a5c2e" fill-opacity=".28" stroke="#7a5c2e" stroke-width="2.5"/>`;
   g+=AXK.map((k,i)=>{const[x,y]=P(i,Math.max(.04,Math.abs(pos[k])));const v=pos[k];
-    return`<circle cx="${x}" cy="${y}" r="5" fill="${v<0?AX[k].cn:AX[k].cp}" stroke="#14172b" stroke-width="2"/>`}).join("");
+    return`<circle cx="${x}" cy="${y}" r="5" fill="${v<0?AX[k].cn:AX[k].cp}" stroke="#e6e3dd" stroke-width="2"/>`}).join("");
   g+=AXK.map((k,i)=>{const[x,y]=P(i,1.2),v=pos[k],anc=Math.abs(x-cx)<10?"middle":x<cx?"end":"start";
     const pole=lvl(v)===0?"centro":(v<0?AX[k].neg:AX[k].pos);
-    return`<text x="${x}" y="${y-4}" fill="#eef0fa" font-size="11.5" font-weight="600" text-anchor="${anc}" font-family="Outfit">${AX[k].n}</text>
-    <text x="${x}" y="${y+10}" fill="${lvl(v)===0?"#a7acc9":(v<0?AX[k].cn:AX[k].cp)}" font-size="10" text-anchor="${anc}" font-family="Outfit">${pole} · ${pct(v)}%</text>`}).join("");
+    return`<text x="${x}" y="${y-4}" fill="#1d1c1a" font-size="11.5" font-weight="600" text-anchor="${anc}" font-family="Inter">${AX[k].n}</text>
+    <text x="${x}" y="${y+10}" fill="${lvl(v)===0?"#5f5b54":(v<0?AX[k].cn:AX[k].cp)}" font-size="10" text-anchor="${anc}" font-family="Inter">${pole} · ${pct(v)}%</text>`}).join("");
   $("radar").innerHTML=g;
-  $("axes").innerHTML=`<div class="legend"><span><i style="background:#f2c46d"></i>Você</span><span><i style="background:#a7acc9"></i>${aff[0].n} (referência)</span></div>`+
+  $("axes").innerHTML=`<div class="legend"><span><i style="background:#7a5c2e"></i>Você</span><span><i style="background:#5f5b54"></i>${aff[0].n} (referência)</span></div>`+
     AXK.map(k=>dvBar(AX[k].n,side(k,pos[k]),pos[k],AX[k])).join("");
 }
 
