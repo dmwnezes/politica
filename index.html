@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bússola Política</title>
-<meta name="description" content="Responda 24 afirmações e veja onde suas opiniões se posicionam nos eixos econômico e social.">
+<meta name="description" content="Responda 44 afirmações em 11 temas e veja sua posição em 5 eixos políticos, com gráficos e correntes de pensamento próximas.">
 <meta name="theme-color" content="#14172b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%2314172b' stroke='%23f2c46d' stroke-width='4'/%3E%3Cpath d='M32 12 L38 32 L32 52 L26 32 Z' fill='%23f2c46d'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +60,7 @@ button{font-family:inherit;cursor:pointer;border:0;color:inherit}
 .progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#f6a96b);border-radius:999px;transition:width .35s ease}
 .meta{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:18px}
 .tema{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.q{font-size:1.3rem;font-weight:600;line-height:1.35;min-height:5.4em;margin-bottom:18px}
+.q{font-size:1.25rem;font-weight:600;line-height:1.35;min-height:5.4em;margin-bottom:18px}
 .opts{display:flex;flex-direction:column;gap:10px}
 .opt{
   display:flex;align-items:center;gap:14px;text-align:left;
@@ -103,6 +103,37 @@ footer a{color:var(--gold);text-decoration:none}
 .fade{animation:fade .35s ease}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (min-width:600px){.card{padding:36px 34px}}
+
+/* v2 */
+.sec{margin-top:28px}
+.sec h3{font-size:1.15rem;margin-bottom:4px}
+.sec .sub{color:var(--muted);font-size:.88rem;margin-bottom:14px}
+.tabs{display:flex;gap:6px;background:var(--card2);border-radius:999px;padding:5px;margin-bottom:12px}
+.tabs button{flex:1;padding:9px 6px;border-radius:999px;font-size:.88rem;color:var(--muted);background:none}
+.tabs button.on{background:var(--gold);color:#1b1a2e;font-weight:600}
+.chart{width:100%;display:block}
+.dv{margin:14px 0}
+.dv-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.dv-top b{font-size:.98rem;font-weight:600}
+.dv-top span{font-size:.82rem;color:var(--muted);text-align:right}
+.dv-track{position:relative;height:12px;border-radius:999px;background:var(--card2)}
+.dv-track::after{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:var(--line);border-radius:2px}
+.dv-fill{position:absolute;top:0;bottom:0;border-radius:999px;transition:all .9s cubic-bezier(.2,.8,.2,1)}
+.dv-poles{display:flex;justify-content:space-between;font-size:.76rem;color:var(--muted);margin-top:5px}
+.aff{display:flex;flex-direction:column;gap:12px}
+.aff-item{background:var(--card2);border-radius:20px;padding:14px 16px}
+.aff-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.aff-head b{font-weight:600}
+.aff-head span{color:var(--gold);font-weight:700}
+.aff-bar{height:8px;border-radius:999px;background:#ffffff12;margin:8px 0}
+.aff-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold),#f6a96b);width:0;transition:width 1s ease}
+.aff-item p{color:var(--muted);font-size:.88rem}
+.ins{display:flex;flex-direction:column;gap:10px}
+.ins div{background:var(--card2);border-radius:20px;padding:14px 16px;font-size:.94rem;color:var(--muted);display:flex;gap:12px}
+.ins div::before{content:"";flex:none;width:10px;height:10px;margin-top:7px;border-radius:50%;background:var(--gold)}
+.ins b{color:var(--text);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--muted);margin-top:6px;justify-content:center}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle}
 </style>
 </head>
 <body>
@@ -112,23 +143,21 @@ footer a{color:var(--gold);text-decoration:none}
     <div><h1>Bússola Política</h1><p>Descubra onde suas ideias se posicionam</p></div>
   </header>
 
-  <!-- INÍCIO -->
   <section id="intro" class="card fade">
     <h2>Onde você está no mapa das ideias?</h2>
-    <p class="lead">Você vai ver 24 afirmações sobre economia e sociedade. Diga o quanto concorda com cada uma. No final, suas respostas viram um ponto em dois eixos: <b>econômico</b> (mais Estado ou mais mercado) e <b>social</b> (mais mudança ou mais tradição).</p>
-    <div class="pills"><span class="pill">24 afirmações</span><span class="pill">≈ 4 minutos</span><span class="pill">Nada é enviado</span></div>
+    <p class="lead">São 44 afirmações sobre economia, trabalho, costumes, segurança, democracia, soberania e meio ambiente. Diga o quanto concorda com cada uma. No final você vê sua posição em <b>5 eixos</b>, em gráficos de posicionamento, e as correntes de pensamento mais próximas de você.</p>
+    <div class="pills"><span class="pill">44 afirmações</span><span class="pill">11 temas</span><span class="pill">≈ 7 minutos</span><span class="pill">Nada é enviado</span></div>
     <button class="btn" id="start">Começar</button>
     <button class="btn ghost hidden" id="resume" style="margin-top:10px">Continuar de onde parei</button>
     <p class="note">Não existe resposta certa. Responda o que você pensa, não o que acha que deveria pensar.</p>
   </section>
 
-  <!-- QUIZ -->
   <section id="quiz" class="card hidden">
     <div class="progress"><span id="bar"></span></div>
-    <div class="meta"><span id="count">1 de 24</span><span id="axisName"></span></div>
+    <div class="meta"><span id="count"></span><span id="axisName"></span></div>
     <span class="tema" id="tema"></span>
     <p class="q" id="q"></p>
-    <div class="opts" id="opts">
+    <div class="opts">
       <button class="opt" data-v="2"><span class="dot"></span>Concordo totalmente</button>
       <button class="opt" data-v="1"><span class="dot"></span>Concordo</button>
       <button class="opt" data-v="0"><span class="dot"></span>Neutro / não sei</button>
@@ -138,217 +167,345 @@ footer a{color:var(--gold);text-decoration:none}
     <button class="back" id="prev">← Voltar</button>
   </section>
 
-  <!-- RESULTADO -->
   <section id="result" class="card hidden">
     <span class="badge">Seu resultado</span>
     <h2 id="rTitle"></h2>
-    <svg class="compass" id="compass" viewBox="0 0 320 320" role="img" aria-label="Gráfico com sua posição nos dois eixos"></svg>
+    <p class="lead" id="rLead" style="margin-bottom:0"></p>
 
-    <div class="axis">
-      <div class="axis-label">Economia: <span id="eLabel"></span></div>
-      <div class="bar"><i id="eDot"></i></div>
-      <div class="axis-top"><span>Mais Estado</span><span>Mais mercado</span></div>
-    </div>
-    <div class="axis">
-      <div class="axis-label">Sociedade: <span id="sLabel"></span></div>
-      <div class="bar soc"><i id="sDot"></i></div>
-      <div class="axis-top"><span>Progressista</span><span>Conservador</span></div>
-    </div>
-
-    <div class="desc">
-      <h3 id="dTitle"></h3>
-      <p id="dText"></p>
-      <p id="dNuance"></p>
+    <div class="sec">
+      <h3>Mapa de posicionamento</h3>
+      <p class="sub">Seu ponto em amarelo. Os pontos menores são correntes de pensamento de referência.</p>
+      <div class="tabs" role="tablist">
+        <button class="on" data-map="es">Economia × Costumes</button>
+        <button data-map="ea">Economia × Autoridade</button>
+      </div>
+      <svg class="chart" id="map" viewBox="0 0 340 340" role="img" aria-label="Mapa com sua posição"></svg>
+      <div class="legend" id="mapLegend"></div>
     </div>
 
-    <div class="desc">
-      <h3>Correntes de pensamento próximas</h3>
-      <div class="list" id="close"></div>
+    <div class="sec">
+      <h3>Perfil nos 5 eixos</h3>
+      <p class="sub">Quanto mais longe do centro, mais definida sua posição naquele eixo.</p>
+      <svg class="chart" id="radar" viewBox="-30 0 460 300" role="img" aria-label="Gráfico de radar dos cinco eixos"></svg>
+      <div id="axes"></div>
     </div>
 
-    <div class="desc">
-      <h3>Onde suas opiniões foram mais firmes</h3>
-      <div class="list" id="strong"></div>
+    <div class="sec">
+      <h3>Correntes mais próximas</h3>
+      <p class="sub">Afinidade calculada comparando suas respostas com o perfil típico de cada corrente.</p>
+      <div class="aff" id="aff"></div>
     </div>
 
-    <div class="row">
+    <div class="sec">
+      <h3>Tema a tema</h3>
+      <p class="sub">Para que lado você pende em cada um dos 11 temas.</p>
+      <div id="themes"></div>
+    </div>
+
+    <div class="sec">
+      <h3>O que suas respostas revelam</h3>
+      <div class="ins" id="ins" style="margin-top:12px"></div>
+    </div>
+
+    <div class="row" style="margin-top:28px">
       <button class="btn" id="share">Compartilhar</button>
       <button class="btn ghost" id="restart">Refazer</button>
     </div>
-    <p class="note">Este teste é uma simplificação. Ideologias reais têm muito mais dimensões, e muitas pessoas combinam ideias de lados diferentes. Use o resultado como ponto de partida para pensar, não como rótulo.</p>
+    <p class="note">Este teste é uma simplificação. As correntes de referência são aproximações do perfil típico de cada uma, e muitas pessoas combinam ideias de lados diferentes. Use o resultado como ponto de partida para pensar, não como rótulo.</p>
   </section>
 
   <footer>criado por: <a href="https://instagram.com/dmwnezes" target="_blank" rel="noopener">@dmwnezes</a></footer>
 </div>
-<div class="toast" id="toast">Resultado copiado!</div>
+<div class="toast" id="toast"></div>
 
 <script>
-// e = eixo econômico (+ = mercado), s = eixo social (+ = conservador)
-// d = direção: concordar empurra para + (1) ou para - (-1)
-const Q = [
-  {a:"e",d:-1,t:"Preços",q:"O governo deveria controlar os preços de itens essenciais, como gás e alimentos, em momentos de crise."},
-  {a:"s",d:-1,t:"Aborto",q:"O aborto deveria ser permitido por escolha da mulher nas primeiras semanas de gestação."},
-  {a:"e",d:1,t:"Estatais",q:"Empresas estatais, como as de energia e petróleo, deveriam ser privatizadas."},
-  {a:"s",d:1,t:"Família",q:"A família tradicional é a base da sociedade e deve ser protegida pelas leis."},
-  {a:"e",d:-1,t:"Impostos",q:"Quem ganha mais deveria pagar uma porcentagem maior de imposto."},
-  {a:"s",d:-1,t:"Drogas",q:"O uso recreativo da maconha por adultos deveria ser legalizado."},
-  {a:"e",d:1,t:"Impostos",q:"Reduzir impostos e burocracia é a melhor forma de gerar empregos."},
-  {a:"s",d:1,t:"Segurança",q:"Penas mais duras e a redução da maioridade penal diminuiriam a criminalidade."},
-  {a:"e",d:-1,t:"Serviços públicos",q:"Saúde e educação de qualidade devem ser garantidas de graça pelo Estado para todos."},
-  {a:"s",d:-1,t:"Casamento",q:"Casais do mesmo sexo devem ter os mesmos direitos que os demais, inclusive o de adotar."},
-  {a:"e",d:1,t:"Trabalho",q:"Leis trabalhistas mais flexíveis ajudariam a criar mais vagas formais."},
-  {a:"s",d:1,t:"Religião",q:"Valores religiosos deveriam ter peso nas decisões políticas do país."},
-  {a:"e",d:-1,t:"Programas sociais",q:"Programas de transferência de renda são essenciais para reduzir a pobreza."},
-  {a:"s",d:-1,t:"Universidade",q:"Cotas raciais e sociais em universidades são uma forma justa de corrigir desigualdades."},
-  {a:"e",d:1,t:"Contas públicas",q:"O governo deveria gastar só o que arrecada, mesmo que isso signifique cortar programas sociais."},
-  {a:"s",d:1,t:"Armas",q:"Cidadãos sem antecedentes criminais deveriam ter acesso facilitado à posse de armas."},
-  {a:"e",d:-1,t:"Sindicatos",q:"Sindicatos fortes são importantes para defender os direitos dos trabalhadores."},
-  {a:"s",d:-1,t:"Educação",q:"As escolas deveriam abordar temas como diversidade e educação sexual."},
-  {a:"e",d:1,t:"Previdência",q:"A aposentadoria deveria migrar para um modelo em que cada pessoa poupa para si mesma."},
-  {a:"s",d:1,t:"Ordem",q:"Manter a ordem é mais importante do que permitir protestos que paralisam a rotina das cidades."},
-  {a:"e",d:-1,t:"Meio ambiente",q:"Leis ambientais rigorosas devem valer mesmo quando atrasam obras e negócios."},
-  {a:"s",d:-1,t:"Vida privada",q:"O Estado não deveria interferir no que adultos fazem na vida privada, desde que não prejudiquem ninguém."},
-  {a:"e",d:1,t:"Mercado",q:"A livre concorrência distribui recursos melhor do que o planejamento do governo."},
-  {a:"s",d:1,t:"Tradição",q:"Tradições e costumes antigos merecem ser preservados, mesmo quando parecem ultrapassados."}
+// Eixos: valor -1 (polo "neg") a +1 (polo "pos")
+const AX={
+  e:{n:"Economia",neg:"Mais Estado",pos:"Mais mercado",cn:"#ef8a7a",cp:"#6fc3e8"},
+  s:{n:"Costumes",neg:"Progressista",pos:"Conservador",cn:"#a98bf0",cp:"#7fd3a0"},
+  a:{n:"Autoridade",neg:"Liberdade",pos:"Ordem",cn:"#f2c46d",cp:"#e58cb4"},
+  g:{n:"Soberania",neg:"Abertura global",pos:"Nacionalismo",cn:"#5fd1c4",cp:"#e9a35b"},
+  m:{n:"Meio ambiente",neg:"Preservação",pos:"Desenvolvimento",cn:"#8fd16a",cp:"#c9a37a"}
+};
+const AXK=Object.keys(AX);
+// t = tema, d = concordar empurra para o polo pos (1) ou neg (-1)
+const T=[
+ ["e","Impostos e gastos",[
+  [1,"Reduzir impostos e burocracia é a melhor forma de gerar empregos."],
+  [-1,"Quem ganha mais deveria pagar uma porcentagem maior de imposto."],
+  [1,"O governo deveria gastar só o que arrecada, mesmo que precise cortar programas."],
+  [-1,"Grandes fortunas e heranças deveriam ser mais taxadas."]]],
+ ["e","Estado na economia",[
+  [1,"Empresas estatais, como as de energia e petróleo, deveriam ser privatizadas."],
+  [-1,"O governo deveria controlar os preços de itens essenciais, como gás e alimentos, em momentos de crise."],
+  [1,"A livre concorrência distribui recursos melhor do que o planejamento do governo."],
+  [-1,"Saúde e educação de qualidade devem ser garantidas de graça pelo Estado para todos."]]],
+ ["e","Trabalho e proteção social",[
+  [1,"Leis trabalhistas mais flexíveis ajudariam a criar mais vagas formais."],
+  [-1,"Sindicatos fortes são importantes para defender os direitos dos trabalhadores."],
+  [1,"A aposentadoria deveria migrar para um modelo em que cada pessoa poupa para si mesma."],
+  [-1,"Programas de transferência de renda são essenciais para reduzir a pobreza."]]],
+ ["s","Família e costumes",[
+  [-1,"O aborto deveria ser permitido por escolha da mulher nas primeiras semanas de gestação."],
+  [1,"A família tradicional é a base da sociedade e deve ser protegida pelas leis."],
+  [-1,"Casais do mesmo sexo devem ter os mesmos direitos que os demais, inclusive o de adotar."],
+  [1,"Tradições e costumes antigos merecem ser preservados, mesmo quando parecem ultrapassados."]]],
+ ["s","Religião, educação e identidade",[
+  [1,"Valores religiosos deveriam ter peso nas decisões políticas do país."],
+  [-1,"As escolas deveriam abordar temas como diversidade e educação sexual."],
+  [1,"Cidadãos sem antecedentes criminais deveriam ter acesso facilitado à posse de armas."],
+  [-1,"Cotas raciais e sociais em universidades são uma forma justa de corrigir desigualdades."]]],
+ ["a","Segurança e justiça",[
+  [1,"Penas mais duras e a redução da maioridade penal diminuiriam a criminalidade."],
+  [-1,"Direitos humanos devem valer para todos, inclusive para quem cometeu crimes."],
+  [1,"A polícia deveria ter mais liberdade para agir, mesmo que aumente o risco de abusos."],
+  [-1,"O uso recreativo da maconha por adultos deveria ser legalizado."]]],
+ ["a","Liberdades e democracia",[
+  [1,"Manter a ordem é mais importante do que permitir protestos que paralisam a rotina das cidades."],
+  [-1,"A liberdade de imprensa deve ser protegida mesmo quando a imprensa erra ou ataca o governo."],
+  [1,"Em crises graves, um líder forte que dependa menos do Congresso faria bem ao país."],
+  [-1,"O Estado não deveria interferir no que adultos fazem na vida privada, desde que não prejudiquem ninguém."]]],
+ ["g","Comércio e setores estratégicos",[
+  [1,"O governo deveria proteger a indústria nacional com tarifas sobre produtos importados."],
+  [-1,"Acordos de livre comércio com outros países beneficiam o Brasil."],
+  [1,"Setores estratégicos, como petróleo e minérios, não deveriam ficar nas mãos de estrangeiros."],
+  [-1,"Empresas estrangeiras investindo no país trazem mais benefícios do que riscos."]]],
+ ["g","Brasil e o mundo",[
+  [-1,"O Brasil deveria acolher imigrantes e refugiados com mais facilidade."],
+  [1,"Os interesses do Brasil devem vir antes de qualquer compromisso internacional."],
+  [-1,"O Brasil deveria cumprir acordos internacionais, como os do clima, mesmo que limitem decisões internas."],
+  [1,"A cultura e a identidade nacional precisam ser protegidas da influência estrangeira."]]],
+ ["m","Clima e energia",[
+  [-1,"O Brasil deveria acelerar o abandono dos combustíveis fósseis, mesmo com custo maior no curto prazo."],
+  [1,"Explorar petróleo em novas áreas, como a Margem Equatorial, é necessário para o desenvolvimento."],
+  [-1,"Leis ambientais rigorosas devem valer mesmo quando atrasam obras e negócios."],
+  [1,"Exigências ambientais excessivas atrapalham o crescimento do país."]]],
+ ["m","Amazônia, terra e campo",[
+  [-1,"Proteger a Amazônia deve ter prioridade, mesmo que limite a expansão do agronegócio."],
+  [1,"O agronegócio é o principal motor da economia e deveria ter menos restrições."],
+  [-1,"Terras indígenas devem ser demarcadas e protegidas."],
+  [1,"Mineração e agricultura deveriam poder avançar sobre áreas hoje protegidas, com regras."]]]
+];
+// embaralha a ordem de apresentação de forma fixa, alternando temas
+const Q=[];T.forEach(([a,t,items],ti)=>items.forEach(([d,q],k)=>Q.push({a,t,ti,d,q,k})));
+Q.sort((x,y)=>x.k-y.k||((x.ti*7)%11)-((y.ti*7)%11));
+
+// perfis aproximados de referência [e,s,a,g,m]
+const REF=[
+ ["Socialismo democrático",[-.9,-.5,-.1,.2,-.4],"Busca ampliar a propriedade coletiva e o controle público da economia, pela via democrática."],
+ ["Social-democracia",[-.5,-.4,-.3,-.2,-.5],"Economia de mercado com forte rede de proteção social e serviços públicos universais."],
+ ["Ecologismo",[-.4,-.6,-.4,-.4,-.95],"Coloca a preservação ambiental e a sustentabilidade no centro das decisões políticas e econômicas."],
+ ["Trabalhismo",[-.6,.2,.1,.4,.2],"Defesa dos direitos trabalhistas e do papel do Estado, com costumes mais tradicionais."],
+ ["Nacional-desenvolvimentismo",[-.6,.2,.4,.85,.6],"Estado como motor da industrialização, da soberania e do desenvolvimento nacional."],
+ ["Democracia cristã",[-.2,.5,.1,0,-.1],"Une a doutrina social cristã e a solidariedade a valores tradicionais e à moderação."],
+ ["Centrismo",[0,0,0,0,0],"Busca soluções intermediárias e negociadas, decidindo caso a caso e desconfiando de extremos."],
+ ["Liberalismo social",[.2,-.5,-.5,-.6,-.3],"Mercado aberto com pautas progressistas, direitos individuais e alguma rede de proteção."],
+ ["Liberalismo clássico",[.65,-.1,-.5,-.5,.2],"Liberdade econômica e individual, Estado limitado e império da lei (Adam Smith, John Stuart Mill)."],
+ ["Libertarianismo",[.95,-.4,-.9,-.5,.4],"Estado mínimo em tudo: na economia e na vida privada (Friedrich Hayek, Robert Nozick)."],
+ ["Liberal-conservadorismo",[.6,.6,.3,.1,.5],"Livre mercado e responsabilidade fiscal com valores tradicionais e ênfase em ordem."],
+ ["Conservadorismo nacional",[.3,.8,.7,.8,.6],"Valores tradicionais, ordem, soberania nacional e desconfiança de organismos internacionais."]
 ];
 
-const KEY="bussola-politica-v1";
-let ans = new Array(Q.length).fill(null), idx = 0;
-const $ = id => document.getElementById(id);
-const show = id => ["intro","quiz","result"].forEach(s=>{const el=$(s);el.classList.toggle("hidden",s!==id);if(s===id){el.classList.remove("fade");void el.offsetWidth;el.classList.add("fade")}});
-
-function save(){try{localStorage.setItem(KEY,JSON.stringify({ans,idx}))}catch(e){}}
-function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&Array.isArray(d.ans)&&d.ans.length===Q.length){ans=d.ans;idx=d.idx||0;return true}}catch(e){}return false}
+const KEY="bussola-politica-v2";
+let ans=new Array(Q.length).fill(null), idx=0, R=null, mapMode="es";
+const $=id=>document.getElementById(id);
+function show(id){["intro","quiz","result"].forEach(s=>{const el=$(s);el.classList.toggle("hidden",s!==id);if(s===id){el.classList.remove("fade");void el.offsetWidth;el.classList.add("fade")}})}
+function save(done){try{localStorage.setItem(KEY,JSON.stringify({ans,idx,done:!!done}))}catch(e){}}
+function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&Array.isArray(d.ans)&&d.ans.length===Q.length){ans=d.ans;idx=Math.min(d.idx||0,Q.length-1);return d}}catch(e){}return null}
 
 function render(){
-  const item=Q[idx];
+  const it=Q[idx];
   $("count").textContent=`${idx+1} de ${Q.length}`;
-  $("axisName").textContent=item.a==="e"?"Economia":"Sociedade";
-  $("tema").textContent=item.t;
-  $("q").textContent=item.q;
-  $("bar").style.width=`${(idx/Q.length)*100}%`;
+  $("axisName").textContent=AX[it.a].n;
+  $("tema").textContent=it.t;
+  $("q").textContent=it.q;
+  $("bar").style.width=`${idx/Q.length*100}%`;
   $("prev").disabled=idx===0;
   document.querySelectorAll(".opt").forEach(b=>b.classList.toggle("sel",ans[idx]!==null&&+b.dataset.v===ans[idx]));
 }
-
+let busy=false;
 function answer(v){
+  if(busy)return; busy=true;
   ans[idx]=v; save();
   document.querySelectorAll(".opt").forEach(b=>b.classList.toggle("sel",+b.dataset.v===v));
-  setTimeout(()=>{ if(idx<Q.length-1){idx++;render()} else {$("bar").style.width="100%";finish()} },180);
+  setTimeout(()=>{busy=false; if(idx<Q.length-1){idx++;render()}else{$("bar").style.width="100%";save(true);finish()}},180);
 }
 
-function scores(){
-  let e=0,s=0,ne=0,ns=0;
-  Q.forEach((it,i)=>{const v=(ans[i]||0)*it.d; if(it.a==="e"){e+=v;ne++}else{s+=v;ns++}});
-  return {e:e/(2*ne), s:s/(2*ns)}; // -1..1
+// ---------- cálculo ----------
+function compute(){
+  const ax={},th=T.map(()=>({sum:0,n:0,neu:0}));
+  AXK.forEach(k=>ax[k]={sum:0,n:0,vals:[]});
+  Q.forEach((it,i)=>{const raw=ans[i]??0,v=raw*it.d/2;
+    ax[it.a].sum+=v;ax[it.a].n++;ax[it.a].vals.push(v);
+    th[it.ti].sum+=v;th[it.ti].n++;if(raw===0)th[it.ti].neu++;});
+  const pos={};AXK.forEach(k=>pos[k]=ax[k].sum/ax[k].n);
+  const themes=T.map((t,i)=>({a:t[0],name:t[1],v:th[i].sum/th[i].n,neu:th[i].neu}));
+  const vec=AXK.map(k=>pos[k]);
+  const aff=REF.map(([n,p,d])=>{const dist=Math.hypot(...p.map((x,i)=>x-vec[i]));return{n,d,p,dist,pct:Math.max(0,Math.round(100*(1-dist/2.4)))}}).sort((a,b)=>a.dist-b.dist);
+  return{pos,themes,aff,ax};
+}
+const pct=v=>Math.round(Math.abs(v)*100);
+function lvl(v){const a=Math.abs(v);return a<.15?0:a<.4?1:a<.7?2:3}
+const LV=["Centro","Leve","Moderado","Forte"];
+function side(k,v){return lvl(v)===0?"Centro":`${LV[lvl(v)]}: ${v<0?AX[k].neg:AX[k].pos}`}
+
+// ---------- gráficos ----------
+function drawMap(){
+  const {pos,aff}=R, yk=mapMode==="es"?"s":"a";
+  const c=170,r=130,X=v=>c+v*r,Y=v=>c-v*r, top3=aff.slice(0,3).map(a=>a.n);
+  const yi=yk==="s"?1:2, ya=AX[yk];
+  const quads=yk==="s"
+    ?["#d9a36b","#7fd3a0","#ef8a7a","#6fc3e8"]
+    :["#ef8a7a","#6fc3e8","#a98bf0","#8fd16a"];
+  let refs=REF.map(([n,p])=>{const i=top3.indexOf(n);
+    return i<0?`<circle cx="${X(p[0])}" cy="${Y(p[yi])}" r="3.5" fill="#a7acc9" opacity=".5"/>`
+      :`<circle cx="${X(p[0])}" cy="${Y(p[yi])}" r="9" fill="#eef0fa"/><text x="${X(p[0])}" y="${Y(p[yi])+3.8}" fill="#14172b" font-size="11" font-weight="700" text-anchor="middle" font-family="Outfit">${i+1}</text>`}).join("");
+  const px=X(pos.e),py=Y(pos[yk]);
+  $("map").innerHTML=`
+  <defs><clipPath id="cl"><rect x="40" y="40" width="260" height="260" rx="34"/></clipPath></defs>
+  <g clip-path="url(#cl)" opacity=".17">
+    <rect x="40" y="40" width="130" height="130" fill="${quads[0]}"/><rect x="170" y="40" width="130" height="130" fill="${quads[1]}"/>
+    <rect x="40" y="170" width="130" height="130" fill="${quads[2]}"/><rect x="170" y="170" width="130" height="130" fill="${quads[3]}"/>
+  </g>
+  <circle cx="170" cy="170" r="${.15*r}" fill="#ffffff" opacity=".05"/>
+  ${[.4,.7].map(f=>`<circle cx="170" cy="170" r="${f*r}" fill="none" stroke="#3a4170" stroke-width="1" stroke-dasharray="2 5"/>`).join("")}
+  <rect x="40" y="40" width="260" height="260" rx="34" fill="none" stroke="#3a4170" stroke-width="2"/>
+  <line x1="40" y1="170" x2="300" y2="170" stroke="#3a4170" stroke-width="2" stroke-dasharray="4 6"/>
+  <line x1="170" y1="40" x2="170" y2="300" stroke="#3a4170" stroke-width="2" stroke-dasharray="4 6"/>
+  <text x="170" y="28" fill="#a7acc9" font-size="11.5" text-anchor="middle" font-family="Outfit">${ya.pos.toUpperCase()}</text>
+  <text x="170" y="322" fill="#a7acc9" font-size="11.5" text-anchor="middle" font-family="Outfit">${ya.neg.toUpperCase()}</text>
+  <text x="24" y="170" fill="#a7acc9" font-size="11.5" text-anchor="middle" font-family="Outfit" transform="rotate(-90 24 170)">MAIS ESTADO</text>
+  <text x="316" y="170" fill="#a7acc9" font-size="11.5" text-anchor="middle" font-family="Outfit" transform="rotate(90 316 170)">MAIS MERCADO</text>
+  ${refs}
+  <line x1="170" y1="170" x2="${px}" y2="${py}" stroke="#f2c46d" stroke-width="2" stroke-dasharray="3 4" opacity=".6"/>
+  <circle cx="${px}" cy="${py}" r="20" fill="#f2c46d" opacity=".22"><animate attributeName="r" values="13;23;13" dur="2.4s" repeatCount="indefinite"/></circle>
+  <circle cx="${px}" cy="${py}" r="9" fill="#f2c46d" stroke="#14172b" stroke-width="3"/>
+  <text x="${px}" y="${py+24}" fill="#f2c46d" font-size="11" font-weight="700" text-anchor="middle" font-family="Outfit">VOCÊ</text>`;
+  $("mapLegend").innerHTML=`<span><i style="background:#f2c46d"></i>Você</span>`+top3.map((n,i)=>`<span><b style="color:#eef0fa">${i+1}</b> ${n}</span>`).join("");
+  document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.map===mapMode));
 }
 
-function intensity(v){const a=Math.abs(v);return a<.15?"centro":a<.4?"leve":a<.7?"moderado":"forte"}
-function axisLabel(v,neg,pos){const i=intensity(v);if(i==="centro")return"Centro";const w={leve:"Levemente",moderado:"Moderadamente",forte:"Fortemente"}[i];return`${w} ${v<0?neg:pos}`}
+function drawRadar(){
+  // raio = intensidade (0 centro .. 1 extremo); rótulo mostra o polo para onde pende
+  const {pos,aff}=R,cx=200,cy=150,r=100,n=AXK.length;
+  const ang=i=>-Math.PI/2+i*2*Math.PI/n, P=(i,f)=>[cx+Math.cos(ang(i))*r*f,cy+Math.sin(ang(i))*r*f];
+  const poly=f=>AXK.map((k,i)=>P(i,f(k)).join(",")).join(" ");
+  const best=REF.find(x=>x[0]===aff[0].n)[1];
+  let g=[.25,.5,.75,1].map(f=>`<polygon points="${poly(()=>f)}" fill="none" stroke="#3a4170" stroke-width="1"/>`).join("");
+  g+=AXK.map((k,i)=>{const[x,y]=P(i,1);return`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#3a4170"/>`}).join("");
+  g+=`<polygon points="${poly(k=>Math.max(.04,Math.abs(best[AXK.indexOf(k)])))}" fill="#a7acc9" fill-opacity=".12" stroke="#a7acc9" stroke-width="1.5" stroke-dasharray="4 4"/>`;
+  g+=`<polygon points="${poly(k=>Math.max(.04,Math.abs(pos[k])))}" fill="#f2c46d" fill-opacity=".28" stroke="#f2c46d" stroke-width="2.5"/>`;
+  g+=AXK.map((k,i)=>{const[x,y]=P(i,Math.max(.04,Math.abs(pos[k])));const v=pos[k];
+    return`<circle cx="${x}" cy="${y}" r="5" fill="${v<0?AX[k].cn:AX[k].cp}" stroke="#14172b" stroke-width="2"/>`}).join("");
+  g+=AXK.map((k,i)=>{const[x,y]=P(i,1.2),v=pos[k],anc=Math.abs(x-cx)<10?"middle":x<cx?"end":"start";
+    const pole=lvl(v)===0?"centro":(v<0?AX[k].neg:AX[k].pos);
+    return`<text x="${x}" y="${y-4}" fill="#eef0fa" font-size="11.5" font-weight="600" text-anchor="${anc}" font-family="Outfit">${AX[k].n}</text>
+    <text x="${x}" y="${y+10}" fill="${lvl(v)===0?"#a7acc9":(v<0?AX[k].cn:AX[k].cp)}" font-size="10" text-anchor="${anc}" font-family="Outfit">${pole} · ${pct(v)}%</text>`}).join("");
+  $("radar").innerHTML=g;
+  $("axes").innerHTML=`<div class="legend"><span><i style="background:#f2c46d"></i>Você</span><span><i style="background:#a7acc9"></i>${aff[0].n} (referência)</span></div>`+
+    AXK.map(k=>dvBar(AX[k].n,side(k,pos[k]),pos[k],AX[k])).join("");
+}
 
-const QUAD={
-  ep:{t:"Esquerda progressista",
-      d:"Você tende a defender um Estado ativo na economia, que reduza desigualdades com impostos progressivos, serviços públicos amplos e proteção ao trabalhador. Nos costumes, valoriza a liberdade individual, a diversidade e mudanças sociais.",
-      c:[["Social-democracia","Economia de mercado com forte rede de proteção social e serviços públicos universais."],["Socialismo democrático","Busca ampliar a propriedade coletiva e o controle público da economia, pela via democrática."],["Liberalismo igualitário","Inspirado em John Rawls: liberdades amplas combinadas com redistribuição para quem tem menos."]]},
-  ec:{t:"Estado forte e valores tradicionais",
-      d:"Você tende a apoiar um Estado presente na economia, protegendo empregos, serviços e a indústria do país, ao mesmo tempo em que valoriza a família, a religião, a ordem e as tradições.",
-      c:[["Democracia cristã","Une doutrina social cristã, solidariedade e Estado de bem-estar a valores tradicionais."],["Trabalhismo tradicional","Defesa dos direitos trabalhistas e do papel do Estado, com costumes mais conservadores."],["Nacional-desenvolvimentismo","Estado como motor do desenvolvimento e da soberania nacional."]]},
-  mp:{t:"Liberal",
-      d:"Você tende a confiar no mercado e na livre iniciativa para gerar prosperidade, com menos impostos e menos intervenção do governo. Nos costumes, também prefere que o Estado interfira pouco nas escolhas individuais.",
-      c:[["Liberalismo clássico","Liberdade econômica e individual, Estado limitado e império da lei (Adam Smith, John Stuart Mill)."],["Libertarianismo","Estado mínimo em tudo: na economia e na vida privada (Friedrich Hayek, Robert Nozick)."],["Liberalismo social de mercado","Mercado livre com abertura a pautas progressistas e alguma rede de proteção."]]},
-  mc:{t:"Direita conservadora",
-      d:"Você tende a defender o livre mercado, menos impostos e responsabilidade fiscal, combinados com a valorização da família, da religião, da ordem e das instituições tradicionais.",
-      c:[["Liberal-conservadorismo","Economia de mercado com valores tradicionais e ênfase em ordem e segurança."],["Conservadorismo clássico","Mudanças graduais, respeito às instituições e à experiência acumulada (Edmund Burke)."],["Fusionismo","Combinação de liberdade econômica com moral tradicional."]]},
-  cc:{t:"Centro",
-      d:"Suas respostas ficaram equilibradas nos dois eixos. Isso pode indicar uma visão pragmática, que avalia cada tema separadamente, ou uma mistura de posições fortes em lados diferentes que se compensaram.",
-      c:[["Centrismo","Busca soluções intermediárias e negociadas, desconfiando de extremos."],["Terceira via","Mercado dinâmico com políticas sociais focadas e responsabilidade fiscal."],["Pragmatismo","Decide caso a caso pelo que funciona na prática, não por doutrina."]]}
-};
+function dvBar(title,label,v,a){
+  const w=Math.abs(v)*50, left=v<0?50-w:50, col=v<0?a.cn:a.cp;
+  return`<div class="dv"><div class="dv-top"><b>${title}</b><span>${label}</span></div>
+  <div class="dv-track"><div class="dv-fill" data-l="${left}" data-w="${w}" style="left:50%;width:0;background:${col}"></div></div>
+  <div class="dv-poles"><span>${a.neg}</span><span>${a.pos}</span></div></div>`;
+}
+function animateBars(){requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  document.querySelectorAll(".dv-fill").forEach(el=>{el.style.left=el.dataset.l+"%";el.style.width=Math.max(.8,+el.dataset.w)+"%"});
+  document.querySelectorAll(".aff-bar i").forEach(el=>el.style.width=el.dataset.w+"%");
+}))}
+
+// ---------- textos ----------
+function title(pos){
+  const {e,s,a}=pos, le=lvl(e), ls=lvl(s);
+  if(le===0&&ls===0&&lvl(a)===0)return"Centro";
+  if(le===0)return s<0?"Centro progressista":"Centro conservador";
+  if(ls===0)return e<0?"Centro-esquerda econômica":"Centro-direita econômica";
+  if(e<0&&s<0)return"Esquerda progressista";
+  if(e<0&&s>0)return"Estado forte e valores tradicionais";
+  if(e>0&&s<0)return"Liberal";
+  return"Direita conservadora";
+}
+function lead(pos){
+  const parts=[];
+  const ph={e:["defende um Estado atuante na economia","confia mais no mercado e na livre iniciativa"],
+    s:["tem uma visão progressista dos costumes","valoriza costumes e valores tradicionais"],
+    a:["prioriza as liberdades individuais","dá mais peso à ordem e à autoridade"],
+    g:["vê com bons olhos a abertura ao mundo","prioriza a soberania e os interesses nacionais"],
+    m:["põe a preservação ambiental em primeiro plano","prioriza o desenvolvimento econômico sobre restrições ambientais"]};
+  AXK.slice().sort((x,y)=>Math.abs(pos[y])-Math.abs(pos[x])).forEach(k=>{if(lvl(pos[k])>0&&parts.length<3)parts.push(ph[k][pos[k]<0?0:1])});
+  if(!parts.length)return"Suas respostas ficaram equilibradas em todos os eixos: você tende a avaliar cada tema separadamente, sem seguir um bloco ideológico.";
+  const last=parts.pop();
+  return`Você ${parts.length?parts.join(", ")+" e ":""}${last}.`;
+}
+function insights(){
+  const {pos,themes,aff,ax}=R, out=[];
+  const sorted=AXK.slice().sort((x,y)=>Math.abs(pos[y])-Math.abs(pos[x]));
+  const k0=sorted[0],k4=sorted[4];
+  if(lvl(pos[k0])>0)out.push(`Seu eixo mais definido é <b>${AX[k0].n}</b> (${pct(pos[k0])}% para ${(pos[k0]<0?AX[k0].neg:AX[k0].pos).toLowerCase()}). É o que mais pesa na sua identidade política.`);
+  out.push(`Onde você é mais moderado: <b>${AX[k4].n}</b>, com ${pct(pos[k4])}% de inclinação. Nesse eixo você tende a ponderar os dois lados.`);
+  // temas do mesmo eixo apontando para lados opostos
+  AXK.forEach(k=>{const ts=themes.filter(t=>t.a===k);
+    for(let i=0;i<ts.length;i++)for(let j=i+1;j<ts.length;j++){const A=ts[i],B=ts[j];
+      if(lvl(A.v)>0&&lvl(B.v)>0&&Math.sign(A.v)!==Math.sign(B.v)){
+        const pa=A.v<0?AX[k].neg:AX[k].pos,pb=B.v<0?AX[k].neg:AX[k].pos;
+        out.push(`Combinação interessante: em <b>${A.name}</b> você pende para <b>${pa.toLowerCase()}</b>, mas em <b>${B.name}</b> pende para <b>${pb.toLowerCase()}</b>. Isso mostra que você não segue um pacote fechado.`);}}});
+  // cruzamento entre eixos que costumam andar juntos
+  if(lvl(pos.e)>0&&lvl(pos.s)>0&&Math.sign(pos.e)!==Math.sign(pos.s))
+    out.push(pos.e<0?`Você combina <b>economia pró-Estado</b> com <b>costumes conservadores</b>, uma combinação comum no Brasil, mas pouco representada nos rótulos de "esquerda" e "direita".`
+                    :`Você combina <b>livre mercado</b> com <b>costumes progressistas</b>, o que te aproxima da tradição liberal mais do que da direita ou da esquerda.`);
+  // consistência
+  const sd=k=>{const v=ax[k].vals,m=v.reduce((a,b)=>a+b,0)/v.length;return Math.sqrt(v.reduce((a,b)=>a+(b-m)**2,0)/v.length)};
+  const avgSd=AXK.reduce((a,k)=>a+sd(k),0)/AXK.length;
+  out.push(avgSd<.35?`Suas respostas foram <b>muito coerentes</b> dentro de cada eixo: quando você tem uma posição, ela aparece em vários temas.`
+          :avgSd<.55?`Suas respostas têm <b>coerência média</b>: você tem tendências claras, mas abre exceções em temas específicos.`
+          :`Suas respostas variam bastante dentro dos eixos: você <b>avalia cada tema isoladamente</b>, sem seguir uma linha fixa.`);
+  const neu=ans.filter(a=>a===0).length, ext=ans.filter(a=>Math.abs(a)===2).length;
+  if(neu>=8){const tn=themes.slice().sort((a,b)=>b.neu-a.neu)[0];out.push(`Você marcou <b>neutro em ${neu}</b> das ${Q.length} afirmações. O tema com mais dúvida foi <b>${tn.name}</b>, um bom ponto para pesquisar mais.`)}
+  if(ext>=12)out.push(`Você deu <b>${ext} respostas extremas</b> (concordo ou discordo totalmente): suas convicções são firmes.`);
+  const [a1,a2]=aff;
+  if(a1.pct-a2.pct<6)out.push(`Você está quase empatado entre <b>${a1.n}</b> (${a1.pct}%) e <b>${a2.n}</b> (${a2.pct}%). Seu perfil fica na fronteira entre as duas.`);
+  return out.slice(0,6);
+}
 
 function finish(){
-  const {e,s}=scores();
-  try{localStorage.setItem(KEY,JSON.stringify({ans,idx,done:true}))}catch(_){}
-  const center=Math.abs(e)<.15&&Math.abs(s)<.15;
-  const k=center?"cc":(e<0?"e":"m")+(s<0?"p":"c");
-  const qd=QUAD[k];
-  $("rTitle").textContent=qd.t;
-  $("dTitle").textContent="O que isso indica";
-  $("dText").textContent=qd.d;
-
-  const ie=intensity(e), is=intensity(s);
-  let n="";
-  if(!center){
-    if(ie==="centro") n="No eixo econômico você ficou no centro, então o que mais define seu resultado são suas opiniões sobre costumes.";
-    else if(is==="centro") n="No eixo social você ficou no centro, então o que mais define seu resultado são suas opiniões sobre economia.";
-    else if(ie==="forte"||is==="forte") n="Em pelo menos um dos eixos suas posições foram bem marcadas.";
-    else n="Suas posições são moderadas: você pende para esse lado, mas sem extremos.";
-  }
-  $("dNuance").textContent=n; $("dNuance").classList.toggle("hidden",!n);
-
-  $("eLabel").textContent=axisLabel(e,"pró-Estado","pró-mercado");
-  $("sLabel").textContent=axisLabel(s,"progressista","conservador");
-  $("eDot").style.left="50%"; $("sDot").style.left="50%";
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{$("eDot").style.left=`${(e+1)*50}%`;$("sDot").style.left=`${(s+1)*50}%`}));
-
-  $("close").innerHTML=qd.c.map(([a,b])=>`<div><b>${a}:</b> ${b}</div>`).join("");
-
-  const strong=Q.map((it,i)=>({it,v:ans[i]||0})).filter(x=>Math.abs(x.v)===2).slice(0,4);
-  $("strong").innerHTML=strong.length?strong.map(x=>`<div><b>${x.v>0?"Concordou totalmente":"Discordou totalmente"}:</b> ${x.it.q}</div>`).join(""):`<div>Você não marcou nenhuma resposta extrema. Suas opiniões tendem a ser mais ponderadas.</div>`;
-
-  drawCompass(e,s);
-  show("result");
-  window.scrollTo({top:0,behavior:"smooth"});
-  window._res={e,s,t:qd.t};
-}
-
-function drawCompass(e,s){
-  // topo = conservador, base = progressista, esquerda = Estado, direita = mercado
-  const c=160,r=130,px=c+e*r,py=c-s*r;
-  $("compass").innerHTML=`
-  <defs><clipPath id="cl"><rect x="30" y="30" width="260" height="260" rx="34"/></clipPath></defs>
-  <g clip-path="url(#cl)" opacity=".18">
-    <rect x="30" y="30" width="130" height="130" fill="#d9a36b"/>
-    <rect x="160" y="30" width="130" height="130" fill="#7fd3a0"/>
-    <rect x="30" y="160" width="130" height="130" fill="#ef8a7a"/>
-    <rect x="160" y="160" width="130" height="130" fill="#6fc3e8"/>
-  </g>
-  <rect x="30" y="30" width="260" height="260" rx="34" fill="none" stroke="#3a4170" stroke-width="2"/>
-  <line x1="30" y1="160" x2="290" y2="160" stroke="#3a4170" stroke-width="2" stroke-dasharray="4 6"/>
-  <line x1="160" y1="30" x2="160" y2="290" stroke="#3a4170" stroke-width="2" stroke-dasharray="4 6"/>
-  <text x="160" y="20" fill="#a7acc9" font-size="12" text-anchor="middle" font-family="Outfit">CONSERVADOR</text>
-  <text x="160" y="310" fill="#a7acc9" font-size="12" text-anchor="middle" font-family="Outfit">PROGRESSISTA</text>
-  <text x="18" y="160" fill="#a7acc9" font-size="12" text-anchor="middle" font-family="Outfit" transform="rotate(-90 18 160)">ESTADO</text>
-  <text x="302" y="160" fill="#a7acc9" font-size="12" text-anchor="middle" font-family="Outfit" transform="rotate(90 302 160)">MERCADO</text>
-  <circle cx="${px}" cy="${py}" r="20" fill="#f2c46d" opacity=".25"><animate attributeName="r" values="14;24;14" dur="2.4s" repeatCount="indefinite"/></circle>
-  <circle cx="${px}" cy="${py}" r="9" fill="#f2c46d" stroke="#14172b" stroke-width="3"/>`;
+  R=compute();
+  const {pos,themes,aff}=R;
+  $("rTitle").textContent=title(pos);
+  $("rLead").textContent=lead(pos);
+  drawMap(); drawRadar();
+  $("aff").innerHTML=aff.slice(0,4).map((a,i)=>`<div class="aff-item"><div class="aff-head"><b>${i===0?"★ ":""}${a.n}</b><span>${a.pct}%</span></div><div class="aff-bar"><i data-w="${a.pct}"></i></div><p>${a.d}</p></div>`).join("");
+  $("themes").innerHTML=themes.map(t=>dvBar(t.name,side(t.a,t.v),t.v,AX[t.a])).join("");
+  $("ins").innerHTML=insights().map(t=>`<div><span>${t}</span></div>`).join("");
+  animateBars();
+  show("result"); window.scrollTo({top:0,behavior:"smooth"});
 }
 
 function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),2000)}
-
 $("start").onclick=()=>{ans=new Array(Q.length).fill(null);idx=0;save();render();show("quiz")};
 $("resume").onclick=()=>{render();show("quiz")};
 $("prev").onclick=()=>{if(idx>0){idx--;save();render()}};
 document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>answer(+b.dataset.v));
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{mapMode=b.dataset.map;drawMap()});
 $("restart").onclick=()=>{try{localStorage.removeItem(KEY)}catch(_){};ans=new Array(Q.length).fill(null);idx=0;$("resume").classList.add("hidden");show("intro")};
 $("share").onclick=async()=>{
-  const r=window._res; if(!r)return;
-  const pct=v=>Math.round(Math.abs(v)*100);
-  const txt=`Meu resultado na Bússola Política: ${r.t}\nEconomia: ${pct(r.e)}% ${r.e<0?"pró-Estado":"pró-mercado"}\nSociedade: ${pct(r.s)}% ${r.s<0?"progressista":"conservador"}\nFaça o seu: ${location.href.split("#")[0]}`;
-  try{ if(navigator.share){await navigator.share({title:"Bússola Política",text:txt});return} }catch(_){return}
+  if(!R)return;
+  const lines=AXK.map(k=>`${AX[k].n}: ${side(k,R.pos[k])} (${pct(R.pos[k])}%)`).join("\n");
+  const txt=`Meu resultado na Bússola Política: ${$("rTitle").textContent}\nMais próximo de: ${R.aff[0].n} (${R.aff[0].pct}%)\n${lines}\nFaça o seu: ${location.href.split("#")[0]}`;
+  try{if(navigator.share){await navigator.share({title:"Bússola Política",text:txt});return}}catch(_){return}
   try{await navigator.clipboard.writeText(txt);toast("Resultado copiado!")}catch(_){toast("Não foi possível copiar")}
 };
 document.addEventListener("keydown",ev=>{
   if($("quiz").classList.contains("hidden"))return;
-  const map={"1":2,"2":1,"3":0,"4":-1,"5":-2};
-  if(map[ev.key]!==undefined)answer(map[ev.key]);
+  const m={"1":2,"2":1,"3":0,"4":-1,"5":-2};
+  if(m[ev.key]!==undefined)answer(m[ev.key]);
   if(ev.key==="Backspace"||ev.key==="ArrowLeft")$("prev").click();
 });
-
-// estado salvo
-try{
-  const d=JSON.parse(localStorage.getItem(KEY)||"null");
-  if(d&&d.done&&load()){finish()}
-  else if(load()&&ans.some(a=>a!==null)){$("resume").classList.remove("hidden")}
-}catch(_){}
+const saved=load();
+if(saved&&saved.done)finish();
+else if(saved&&ans.some(a=>a!==null))$("resume").classList.remove("hidden");
 </script>
 </body>
 </html>
